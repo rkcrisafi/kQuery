@@ -4,7 +4,7 @@ kQuery is a lightweight library featuring DOM manipulation, DOM traversal, event
 
 ## Demo
 
- Take a look at this [Live Demo]() of the kQuery library.
+ Take a look at this [Live Demo](http://rkcrisafi.github.io/kQuery/) of the kQuery library.
 
 ## API
 
