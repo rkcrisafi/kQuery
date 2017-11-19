@@ -2,17 +2,76 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>jQuery Lite</title>
+    <title>kQuery</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./lib/jquery_lite.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link rel="stylesheet" href="./app.css"></link>
   </head>
+
   <body>
-    <div class="div1">hello 1</div>
-    <div class="div2">hello 2</div>
-    <div class="div3">hello 3</div>
-    <ul>
-      <li></li>
-    </ul>
-    <a href="#"></a>
+    <div class="demo">
+      <form class="input-form" action="index.html" method="post">
+        <h1 class="k-query">kQuery</h1>
+        <h1>DEMO</h1>
+        <label class="input-field">
+          <input type="text" name="" value="" class="input" placeholder="Pick a Giphy">
+          <button type="button" name="button" class="search-button">Search</button>
+          <button type="button" name="button" class="clear-all">Clear All</button>
+        </label>
+        <h3>GIPHYs</h3>
+        <div class="">
+          <div class="class-buttons">
+            <button type="button" name="button" class="add-class-button">Add Class</button>
+            <button type="button" name="button" class="remove-class-button">Remove Class</button>
+          </div>
+
+          <ul class="giphys">
+          </ul>
+        </div>
+      </form>
+      <script type="text/javascript">
+
+        $l("form").on("submit", (e) => {
+          e.preventDefault();
+          let input = $l(".input").elements[0].value;
+          console.log(input)
+          $l.ajax({
+            method: 'get',
+            url: `https://api.giphy.com/v1/gifs/search?api_key=U2vdHz6NYcTfS82axjtHUYRKQaqDkiSq&q=${input}&limit=25&offset=0&rating=G&lang=en`,
+            success: res => {
+              // debugger
+              let urls = [];
+              res.data.forEach(data => {
+                urls.push(data.images.downsized_medium.url);
+              })
+              urls.forEach((url, idx) => {
+                setTimeout(() => {
+                  $l(".giphys").append(`<img src=${url} width="100px"/>`)
+                }, 2000 * idx)
+              })
+            }
+          })
+        })
+
+        $l(".clear-all").on("click", (e) => {
+          e.preventDefault();
+          $l(".giphys").empty();
+        })
+
+        $l(".add-class-button").on("click", (e) => {
+          e.preventDefault();
+          $l("body").addClass("change-color");
+          $l("button").addClass("change-color-button");
+        })
+
+        $l(".remove-class-button").on("click", (e) => {
+          e.preventDefault();
+          $l("body").removeClass("change-color");
+          $l("button").removeClass("change-color-button");
+        })
+
+      </script>
+    </div>
   </body>
 </html>

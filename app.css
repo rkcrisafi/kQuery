@@ -1,0 +1,54 @@
+
+body {
+  background-color: black;
+  font-family: 'Anton', sans-serif;
+  color: white;
+}
+
+.change-color {
+  background-color: #6157ff;
+}
+
+button.change-color-button {
+  background-color: black;
+}
+
+.demo {
+  text-align: center;
+  font-family: 'interface', monospace;
+}
+
+.k-query {
+  font-size: 40px;
+}
+
+.input-field {
+  display: flex;
+  padding: 3px;
+}
+
+.input {
+  min-width: 300px;
+  font-weight: 400;
+  height: 52px;
+  font-size: 18px;
+  padding-left: 10px;
+  margin: 10px;
+}
+
+.search-button, .clear-all, .add-class-button, .remove-class-button {
+  padding: 2px;
+  background-color: #6157ff;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 16px 25px;
+  height: 52px;
+  margin: 10px 5px;
+}
+
+.giphys {
+  text-align: left;
+}
