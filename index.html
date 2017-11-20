@@ -32,7 +32,7 @@
       </form>
       <script type="text/javascript">
 
-        $l("form").on("submit", (e) => {
+        function fetchGiphys(e) {
           e.preventDefault();
           let input = $l(".input").elements[0].value;
           console.log(input)
@@ -52,7 +52,10 @@
               })
             }
           })
-        })
+        }
+
+        $l("form").on("submit", (e) => fetchGiphys(e))
+        $l(".search-button").on("click", (e) => fetchGiphys(e))
 
         $l(".clear-all").on("click", (e) => {
           e.preventDefault();
